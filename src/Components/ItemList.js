@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ItemCard from './ItemCard';
 
+
+
 const ItemList = () => {
   const [products, setProduct] = useState([]);
 
@@ -11,7 +13,7 @@ const ItemList = () => {
   async function getProducts() {
     const data = await fetch("https://dummyjson.com/products");
     const json = await data.json();
-    console.log(json.products);
+    console.log(json);
     setProduct(json.products);
   }
   return (

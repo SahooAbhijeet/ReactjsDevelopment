@@ -148,16 +148,7 @@ const Register = () => {
             onChange={e => setGender(e.target.value)} name="gender" value="female" className="app-check"></input>
             <label>Female</label>
 
-            
           </div>
-          
-          {/* <div className="flex justify-between w-full py-4">
-            <div className="mr-24">
-              <input type="checkbox" name="ch" id="ch" className="mr-2" />
-              <span className="text-md">Remember for 30 days</span>
-            </div>
-            <span className="font-bold text-md">Forgot password</span>
-          </div> */}
 
           
           <button
@@ -168,13 +159,6 @@ const Register = () => {
           </button>
 
           <p className='text-center'> Already have an  account ? <Link to="/login" className='cursor-pointer underline'>Login</Link></p>
-
-          
-          {/* <div className="text-center text-gray-400">
-
-            Dont'have an account?
-            <span className="font-bold text-black">Sign up for free</span>
-          </div> */}
 
         </div>
         

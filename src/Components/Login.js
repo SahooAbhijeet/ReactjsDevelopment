@@ -1,8 +1,9 @@
 import React from 'react'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Toaster } from 'react-hot-toast';
+import { AuthContext } from '../utils/Auth';
 
 const Login = () => {
 
@@ -10,16 +11,20 @@ const Login = () => {
 
   const [username, setUserName] = useState('');
   const [password, setPassword] = useState();
-  
+  const { login } = useContext(AuthContext);
   const Navigate = useNavigate();
 
   useEffect(() => {
    sessionStorage.clear();
 
-  },[])
+  },[]);
 
 
+    const handleLogin = () => {
+      const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsInVzZXJuYW1lIjoia21pbmNoZWxsZSIsImVtYWlsIjoia21pbmNoZWxsZUBxcS5jb20iLCJmaXJzdE5hbWUiOiJKZWFubmUiLCJsYXN0TmFtZSI6IkhhbHZvcnNvbiIsImdlbmRlciI6ImZlbWFsZSIsImltYWdlIjoiaHR0cHM6Ly9yb2JvaGFzaC5vcmcvYXV0cXVpYXV0LnBuZz9zaXplPTUweDUwJnNldD1zZXQxIiwiaWF0IjoxNjM1NzczOTYyLCJleHAiOjE2MzU3Nzc1NjJ9.n9PQX8w8ocKo0dMCw3g8bKhjB8Wo7f7IONFBDqfxKhs";
 
+      login(token);
+    }
 
   const ProceedLogin = (e) => {
     e.preventDefault();
@@ -110,18 +115,11 @@ const Login = () => {
           </div>
           <div className="flex justify-between w-full py-4">
 
-            {/* <div className="mr-24">
-              <input type="checkbox" name="ch" id="ch" className="mr-2" />
-              <span className="text-md">Remember for 30 days</span>
-            </div> */}
-            {/* <span className="font-bold text-md">Forgot password</span> */}
-
-
           </div>
           <button
             type='submit'
             className="w-full bg-black text-white p-2 rounded-lg mb-6 hover:bg-white hover:text-black hover:border hover:border-gray-300"
-            
+            onClick={handleLogin}
           >
             Sign in
           </button>
